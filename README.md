@@ -37,7 +37,27 @@ Documentazione JWT
 https://stormpath.com/blog/jwt-java-create-verify
 https://stormpath.com/blog/beginners-guide-jwts-in-java
 https://github.com/jwtk/jjwt
+
 ------------------------------------------
+
+Snippets o link utili:
+
+1. Spring Initializer
+
+2. Dipendenze da settare
+
+3. Aggiunte al pom.xml
+
+4. Struttura del DB
+
+
+
+
+
+
+
+
+
 
 
 
