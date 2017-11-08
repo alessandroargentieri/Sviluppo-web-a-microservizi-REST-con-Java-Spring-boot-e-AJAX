@@ -215,9 +215,9 @@ pom.xml di CouponMicroservice
 
 ------------------------------------------
 
-##Metodi dei due Service di AccountMicroservice:##
+## Metodi dei due Service di AccountMicroservice: ##
 
-###LoginService:###
+### LoginService: ###
 	
    * Optional<User> getUserFromDbAndVerifyPassword(String id, String password)
 	* Richiama al suo interno:
@@ -242,7 +242,7 @@ pom.xml di CouponMicroservice
 	   * UnsupportedEncodingException 
 	   * ExpiredJwtException 
 
-###OperationService:###
+### OperationService: ###
 
    * List<Operation> getAllOperationPerAccount(String accountId)
    * List<Account> getAllAccountsPerUser(String userId)
