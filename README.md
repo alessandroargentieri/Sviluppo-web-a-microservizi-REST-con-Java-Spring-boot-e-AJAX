@@ -56,7 +56,7 @@ http://www.jasypt.org/
 
 ## Struttura del DB ##
 
-  ### nome DB: accountdb (H2 - in Memory DB) il nome non è importante ###
+ ### nome DB: accountdb (H2 - in Memory DB) il nome non è importante ###
   
     TABLE users      (String ID, String USERNAME, String PASSWORD, String PERMISSION) 
   
