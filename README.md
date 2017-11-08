@@ -220,25 +220,25 @@ pom.xml di CouponMicroservice
 ### LoginService: ###
 	
   ```Optional(User) getUserFromDbAndVerifyPassword(String id, String password)```
-  Richiama al suo interno:
+  #### Richiama al suo interno: ####
        * userDao.findById(id), encryptionUtils.decrypt(pwd) 
-  che possono entrambe lanciare:
+  #### che possono entrambe lanciare: ####
        * UserNotLoggedException
 	
   ```String createJwt(String subject, String name, String permission, Date date) ```    
-   Richiama al suo interno:
+   #### Richiama al suo interno: ####
        * JwtUtils.generateJwt(...) 	
-   che può lanciare:
+   #### che può lanciare: ####
        * UnsupportedEncodingException
 	    
    ```Map<String, Object> verifyJwtAndGetData(HttpServletRequest request)```
-   Richiama al suo interno:
+   #### Richiama al suo interno: ####
       * JwtUtils.getJwtFromHttpRequest(request)
-   che può lanciare:
+   #### che può lanciare: ####
       * UserNotLoggedException
-   Richiama anche:
+   #### Richiama anche:####
       * JwtUtils.jwt2Map(jwt)
-   che può lanciare:
+   #### che può lanciare: ####
       * UnsupportedEncodingException 
       * ExpiredJwtException 
 
