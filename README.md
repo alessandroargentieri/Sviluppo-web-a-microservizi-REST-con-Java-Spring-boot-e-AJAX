@@ -46,6 +46,7 @@ https://projectlombok.org/
 
 Libreria criptaggio password
 http://www.jasypt.org/
+
 ------------------------------------------
 
 Snippets o link utili:
@@ -69,8 +70,8 @@ Snippets o link utili:
 
 pom.xml di AccountMicroservice
 
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    <?xml version="1.0" encoding="UTF-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -96,60 +97,59 @@ pom.xml di AccountMicroservice
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+	    <dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-jpa</artifactId>
+	    </dependency>
+	    <dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+	    </dependency>
 
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-			<version>1.16.10</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.jasypt</groupId>
-			<artifactId>jasypt</artifactId>
-			<version>1.9.2</version>
-		</dependency>
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt</artifactId>
-			<version>0.7.0</version>
-		</dependency>
-	</dependencies>
+	    <dependency>
+		<groupId>com.h2database</groupId>
+		<artifactId>h2</artifactId>
+		<scope>runtime</scope>
+	    </dependency>
+	    <dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<optional>true</optional>
+		<version>1.16.10</version>
+	    </dependency>
+	    <dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+		<scope>test</scope>
+	    </dependency>
+	    <dependency>
+		<groupId>org.jasypt</groupId>
+		<artifactId>jasypt</artifactId>
+		<version>1.9.2</version>
+	    </dependency>
+	    <dependency>
+		<groupId>io.jsonwebtoken</groupId>
+		<artifactId>jjwt</artifactId>
+		<version>0.7.0</version>
+	    </dependency>
+ 	 </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+	 <build>
+	    <plugins>
+		<plugin>
+	   	   <groupId>org.springframework.boot</groupId>
+		   <artifactId>spring-boot-maven-plugin</artifactId>
+		</plugin>
+	   </plugins>
 	</build>
-
-</project>
+     </project>
 
 ------------------------------------------
 
 pom.xml di CouponMicroservice
 
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    <?xml version="1.0" encoding="UTF-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -211,24 +211,42 @@ pom.xml di CouponMicroservice
 			</plugin>
 		</plugins>
 	</build>
-
-</project>
+    </project>
 
 ------------------------------------------
 
 Metodi dei due Service di AccountMicroservice:
 
 LoginService:
-	Optional<User> getUserFromDbAndVerifyPassword(String id, String password)     -> userDao.findById(id), encryptionUtils.decrypt(pwd) -> UserNotLoggedException
-	String createJwt(String subject, String name, String permission, Date date)            -> JwtUtils.generateJwt(...) 						 -> UnsupportedEncodingException
-	Map<String, Object> verifyJwtAndGetData(HttpServletRequest request)		  -> JwtUtils.getJwtFromHttpRequest(request)		-> UserNotLoggedException
-																	  -> JwtUtils.jwt2Map(jwt)						-> UnsupportedEncodingException 
-																												->  ExpiredJwtException 
+	
+   Optional<User> getUserFromDbAndVerifyPassword(String id, String password)
+	Richiama al suo interno:
+	    userDao.findById(id), encryptionUtils.decrypt(pwd) 
+	che possono entrambe lanciare:
+	    UserNotLoggedException
+	
+   String createJwt(String subject, String name, String permission, Date date)     
+	Richiama al suo interno:
+	    JwtUtils.generateJwt(...) 	
+	che può lanciare:
+	    UnsupportedEncodingException
+	    
+   Map<String, Object> verifyJwtAndGetData(HttpServletRequest request)
+	Richiama al suo interno:
+	    JwtUtils.getJwtFromHttpRequest(request)
+	che può lanciare:
+	    UserNotLoggedException
+	Richiama anche:
+	    JwtUtils.jwt2Map(jwt)
+	che può lanciare:
+	    UnsupportedEncodingException 
+	    ExpiredJwtException 
 
 OperationService:
-	List<Operation> getAllOperationPerAccount(String accountId)
-	List<Account> getAllAccountsPerUser(String userId)
-	Operation saveOperation(Operation operation);
+
+   List<Operation> getAllOperationPerAccount(String accountId)
+   List<Account> getAllAccountsPerUser(String userId)
+   Operation saveOperation(Operation operation);
 
 
 
