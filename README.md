@@ -3,7 +3,7 @@ Materiale del corso UDEMY : Sviluppo web a microservizi REST con Java Spring boo
 
 Snippet e risorse per il corso
 
-Sezione 1
+## Documentazioni e tutorial ##
 -----------------------------------------
 Istruzioni installazione JRE 1.8
 https://www.java.com/it/download/help/download_options.xml
@@ -71,7 +71,7 @@ http://www.jasypt.org/
 
 ------------------------------------------
 
-pom.xml di AccountMicroservice
+## pom.xml di AccountMicroservice ##
 
     <?xml version="1.0" encoding="UTF-8"?>
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -149,7 +149,7 @@ pom.xml di AccountMicroservice
 
 ------------------------------------------
 
-pom.xml di CouponMicroservice
+## pom.xml di CouponMicroservice ##
 
     <?xml version="1.0" encoding="UTF-8"?>
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
