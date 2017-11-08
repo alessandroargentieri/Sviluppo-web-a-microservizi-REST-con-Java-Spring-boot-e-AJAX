@@ -53,7 +53,7 @@ http://www.jasypt.org/
 
 # Snippets o link utili: #
 
-## Spring Initializer: https://start.spring.io/ ##
+## Spring Initializer ##
 <https://start.spring.io/>
 
 ## Struttura del DB ##
