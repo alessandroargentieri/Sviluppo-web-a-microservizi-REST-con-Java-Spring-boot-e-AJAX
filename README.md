@@ -21,6 +21,9 @@ https://git-scm.com/book/it/v1/Per-Iniziare-Installare-Git
 Istruzioni installazione IntelliJIDEA Community Edition
 https://www.jetbrains.com/idea/documentation/
 
+Link di istallazione di XAMPP:
+https://www.apachefriends.org/download.html
+
 Documentazione Spring Framework
 https://docs.spring.io/spring/docs/current/spring-framework-reference/pdf/spring-framework-reference.pdf
 
