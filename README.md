@@ -54,6 +54,9 @@ https://projectlombok.org/
 Libreria criptaggio password
 http://www.jasypt.org/
 
+Istruzioni installazione PostMan
+https://www.angeloparziale.it/blog/2017/06/22/postman/
+
 ------------------------------------------
 
 # Snippets o link utili: #
